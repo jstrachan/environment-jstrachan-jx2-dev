@@ -3,13 +3,17 @@ autoUpdate:
   schedule: ""
 bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-helmfile-config
 cluster:
+  azure: {}
   clusterName: jstrachan-jx2
   devEnvApprovers:
   - jstrachan
   environmentGitOwner: jstrachan
+  externalDNSSAName: externaldns-sa
   gitKind: github
   gitName: github
   gitServer: https://github.com
+  gke: {}
+  kanikoSAName: kaniko-sa
   namespace: jx
   project: jstrachan-multicluster
   provider: gke
@@ -17,9 +21,9 @@ cluster:
   zone: europe-west1-b
 environments:
 - ingress:
-    domain: ""
+    domain: 35.195.46.225.nip.io
     externalDNS: false
-    namespaceSubDomain: ""
+    namespaceSubDomain: -jx.
     tls:
       email: ""
       enabled: false
@@ -46,10 +50,12 @@ environments:
       production: false
   key: production
   repository: environment-jstrachan-jx2-production
+githubApp:
+  enabled: false
 gitops: true
 helmfile: true
 ingress:
-  domain: ""
+  domain: 35.195.46.225.nip.io
   externalDNS: false
   namespaceSubDomain: -jx.
   tls:
@@ -72,9 +78,11 @@ storage:
   repository:
     enabled: false
     url: ""
-vault: {}
+vault:
+  aws: {}
 velero:
   schedule: ""
+  serviceAccount: velero-sa
   ttl: ""
 versionStream:
   ref: master
