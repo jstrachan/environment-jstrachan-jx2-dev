@@ -1,0 +1,39 @@
+
+Showing logs for build [32mjstrachan-environment-jstrachan-22gvx-2[0m stage [32mpr-checks[0m and container [32mstep-credential-initializer-5n872[0m
+{"level":"warn","ts":1582537524.1129918,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582537524.1135716,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjstrachan-environment-jstrachan-22gvx-2[0m stage [32mpr-checks[0m and container [32mstep-working-dir-initializer-gh9g5[0m
+{"level":"warn","ts":1582537525.4781737,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1582537525.4796813,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjstrachan-environment-jstrachan-22gvx-2[0m stage [32mpr-checks[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjstrachan-environment-jstrachan-22gvx-2[0m stage [32mpr-checks[0m and container [32mstep-git-source-jstrachan-environment-jstrachan-22gvx-nz6zk[0m
+{"level":"warn","ts":1582537531.6095202,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582537532.6317415,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*********/environment-*********-**2-dev.git @ master in path /workspace/source"}
+
+Showing logs for build [32mjstrachan-environment-jstrachan-22gvx-2[0m stage [32mpr-checks[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:efe4c338a07c740cbafca07d4fe7d7236668d49e,1:11d87563d72cbc19877c05b101a3f5317e2ac5a7
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git fetch origin --unshallow 11d87563d72cbc19877c05b101a3f5317e2ac5a7: efe4c338a07c740cbafca07d4fe7d7236668d49e:
+DEBUG: ran git fetch --unshallow origin 11d87563d72cbc19877c05b101a3f5317e2ac5a7: efe4c338a07c740cbafca07d4fe7d7236668d49e: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git reset --hard efe4c338a07c740cbafca07d4fe7d7236668d49e
+DEBUG: ran git reset --hard efe4c338a07c740cbafca07d4fe7d7236668d49e in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 11d87563d72cbc19877c05b101a3f5317e2ac5a7
+DEBUG: ran git merge 11d87563d72cbc19877c05b101a3f5317e2ac5a7 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e efe4c338a07c740cbafca07d4fe7d7236668d49e..HEAD
+Merged SHA 11d87563d72cbc19877c05b101a3f5317e2ac5a7 with commit message 'chore(deps): bump https://github.com/*********/nodey421.git' into base branch master
+Merged SHA 7d8949e2a3a40d5e236cf8cb9b13a5f9b6875b46 with commit message 'chore(deps): bump https://github.com/*********/nodey420.git' into base branch master
+
+Showing logs for build [32mjstrachan-environment-jstrachan-22gvx-2[0m stage [32mpr-checks[0m and container [32mstep-create-helmfile[0m
+Cloning the Jenkins X versions repo https://github.com/*********/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+
+Showing logs for build [32mjstrachan-environment-jstrachan-22gvx-2[0m stage [32mpr-checks[0m and container [32mstep-lint-helmfile-system[0m
+in ./helmfile.yaml: error during ../environments.yaml.part.0 parsing: template: stringTemplate:6:9: executing "stringTemplate" at <requiredEnv "JX_SECRETS_YAML">: error calling requiredEnv: required env var `JX_SECRETS_YAML` is not set
+[31m
+Pipeline failed on stage 'pr-checks' : container 'step-lint-helmfile-system'. The execution of the pipeline has stopped.[0m
